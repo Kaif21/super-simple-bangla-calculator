@@ -36,10 +36,16 @@ Array.from(keys).forEach((key) => {
         } else if (display == 'C') {
             inputBox = "";
             convertedMath = "";
-        } else {
+        } else if (display == '←' || e.target.id === 'delete') {
+
+            inputBox = inputBox.slice(0, -1);
+             convertedMath =  convertedMath.slice(0, -1);
+        }   else {
             inputBox += value;
             convertedMath += display;
         }
         document.querySelector('input').value = convertedMath;
     });
 });
+
+//empty the inputbox after result when type some thing else
